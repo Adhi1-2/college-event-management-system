@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Organizer Dashboard</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background: linear-gradient(to right, #667eea, #764ba2); min-height:100vh;">
+
+<div class="container mt-5">
+
+    <h1 class="text-white mb-5 text-center">Organizer Dashboard</h1>
+
+    <div class="row g-4">
+     
+
+    <div class="row mb-4">
+
+    <div class="col-md-4">
+        <div class="card bg-primary text-white shadow">
+            <div class="card-body text-center">
+                <h2>{{ total_events }}</h2>
+                <p>Total Events</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card bg-success text-white shadow">
+            <div class="card-body text-center">
+                <h2>{{ total_registrations }}</h2>
+                <p>Total Registrations</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card bg-warning text-dark shadow">
+            <div class="card-body text-center">
+
+                {% if popular_event %}
+                    <h5>{{ popular_event[0] }}</h5>
+                    <p>🔥 Most Popular</p>
+                {% else %}
+                    <p>No registrations yet</p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+        <!-- CREATE EVENT CARD -->
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0 p-4 text-center">
+
+                <h3>Create New Event</h3>
+
+                <p class="text-muted">
+                    Start organizing a new campus event in seconds.
+                </p>
+
+                <!-- IMPORTANT -->
+                <a href="/create-event" class="btn btn-primary btn-lg">
+                    Create Event
+                </a>
+
+            </div>
+        </div>
+
+     
+
+
+        <!-- MANAGE EVENT CARD -->
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0 p-4 text-center">
+
+                <h3>Manage Events</h3>
+
+                <p class="text-muted">
+                    Edit or delete your existing events easily.
+                </p>
+
+                <a href="/manage-events" class="btn btn-warning btn-lg">
+                    Manage Events
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- LOGOUT BUTTON -->
+    <div class="text-center mt-5">
+        <a href="/logout" class="btn btn-danger px-5">
+            Logout
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
